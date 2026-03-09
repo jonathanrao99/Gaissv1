@@ -14,7 +14,7 @@ export default function HeroNextConfo() {
   return (
     <div ref={ref} data-hero>
       {/* ─── IMAGE SECTION ─── */}
-      <section data-dark-section className="relative h-[65vh] min-h-[340px] overflow-hidden bg-[#0a0a0f]">
+      <section data-dark-section className="relative h-[75vh] min-h-[340px] lg:h-[65vh] lg:min-h-[400px] overflow-hidden bg-[#0a0a0f]">
         <motion.div className="absolute inset-0" style={{ y: imgY }}>
           <Image
             src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=1920&q=80"
@@ -54,7 +54,7 @@ export default function HeroNextConfo() {
                 Ready to be part of it?
               </p>
               <p className="mt-2.5 text-lg sm:text-lg leading-relaxed text-white/90">
-                Don&apos;t miss the premier conference on generative AI for secure systems! Get your tickets now and be part of the future of technology!
+                Don&apos;t miss the premier conference on <strong className="italic font-bold text-white">Generative AI for Secure Systems</strong>! Get your tickets now and be part of the future of technology!
               </p>
               <HoverAnimationButton
                 href="/#tickets"
