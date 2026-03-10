@@ -74,15 +74,33 @@ body {
   color: #1e293b;
 }
 
-/* Hero image section — dvh for consistent mobile viewport (address bar changes) */
+/* Hero image section — sized so image + gradient + "GAISS SUMMIT 2026" fit in viewport */
 .h-hero-image {
-  height: 75vh;
-  height: 75dvh;
+  height: calc(100vh - 7rem); /* fallback */
+  height: calc(100dvh - 7rem); /* 7rem for headline on mobile */
+}
+@media (min-width: 640px) {
+  .h-hero-image {
+    height: calc(100vh - 9rem);
+    height: calc(100dvh - 9rem);
+  }
+}
+@media (min-width: 768px) {
+  .h-hero-image {
+    height: calc(100vh - 11rem);
+    height: calc(100dvh - 11rem);
+  }
 }
 @media (min-width: 1024px) {
   .h-hero-image {
-    height: 65vh;
-    height: 65dvh;
+    height: calc(100vh - 14rem);
+    height: calc(100dvh - 14rem);
+  }
+}
+@media (min-width: 1280px) {
+  .h-hero-image {
+    height: calc(100vh - 16rem);
+    height: calc(100dvh - 16rem);
   }
 }
 

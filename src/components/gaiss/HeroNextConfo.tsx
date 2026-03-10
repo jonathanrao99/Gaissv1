@@ -14,7 +14,7 @@ export default function HeroNextConfo() {
   return (
     <div ref={ref} data-hero>
       {/* ─── IMAGE SECTION ─── */}
-      <section data-dark-section className="relative h-hero-image min-h-[max(340px,50dvh)] lg:min-h-[400px] overflow-hidden bg-[#0a0a0f]">
+      <section data-dark-section className="relative h-hero-image overflow-hidden bg-[#0a0a0f]">
         <motion.div className="absolute inset-0" style={{ y: imgY }}>
           <Image
             src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=1920&q=80"
