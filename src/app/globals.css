@@ -76,31 +76,31 @@ body {
 
 /* Hero image section — sized so image + gradient + "GAISS SUMMIT 2026" fit in viewport */
 .h-hero-image {
-  height: calc(100vh - 7rem); /* fallback */
-  height: calc(100dvh - 7rem); /* 7rem for headline on mobile */
+  height: calc(100vh - 10.5rem); /* fallback */
+  height: calc(100dvh - 10.5rem); /* 10.5rem for headline on mobile */
 }
 @media (min-width: 640px) {
   .h-hero-image {
-    height: calc(100vh - 9rem);
-    height: calc(100dvh - 9rem);
+    height: calc(100vh - 12rem);
+    height: calc(100dvh - 12rem);
   }
 }
 @media (min-width: 768px) {
-  .h-hero-image {
-    height: calc(100vh - 11rem);
-    height: calc(100dvh - 11rem);
-  }
-}
-@media (min-width: 1024px) {
   .h-hero-image {
     height: calc(100vh - 14rem);
     height: calc(100dvh - 14rem);
   }
 }
+@media (min-width: 1024px) {
+  .h-hero-image {
+    height: calc(100vh - 17rem);
+    height: calc(100dvh - 17rem);
+  }
+}
 @media (min-width: 1280px) {
   .h-hero-image {
-    height: calc(100vh - 16rem);
-    height: calc(100dvh - 16rem);
+    height: calc(100vh - 19.5rem);
+    height: calc(100dvh - 19.5rem);
   }
 }
 

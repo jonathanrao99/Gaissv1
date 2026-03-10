@@ -62,6 +62,7 @@ export default function NavNextConfo() {
   const [navMode, setNavMode] = useState<"glass" | "dark" | "light">("glass");
   const [navVisible, setNavVisible] = useState(true);
   const lastScrollY = useRef(0);
+  const rafId = useRef<number | null>(null);
   const { scrollY } = useScroll();
   const dropdownRef = useRef<HTMLDivElement>(null);
 
@@ -87,7 +88,12 @@ export default function NavNextConfo() {
   useMotionValueEvent(scrollY, "change", (latest) => {
     const y = latest;
     const prev = lastScrollY.current;
-    checkNavMode();
+    if (rafId.current === null) {
+      rafId.current = requestAnimationFrame(() => {
+        checkNavMode();
+        rafId.current = null;
+      });
+    }
     if (y <= SCROLL_THRESHOLD) setNavVisible(true);
     else if (y > prev + SCROLL_DELTA) setNavVisible(false);
     else if (y < prev - SCROLL_DELTA) setNavVisible(true);

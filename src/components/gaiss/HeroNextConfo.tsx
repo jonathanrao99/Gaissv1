@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import { useRef } from "react";
 import Link from "next/link";
 import HoverAnimationButton from "@/components/ui/HoverAnimationButton";
@@ -10,17 +10,27 @@ export default function HeroNextConfo() {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
   const imgY = useTransform(scrollYProgress, [0, 1], ["0%", "18%"]);
+  const imgScale = useTransform(scrollYProgress, [0, 1], [1, 1.08]);
+  const smoothY = useSpring(imgY, { stiffness: 400, damping: 40 });
+  const smoothScale = useSpring(imgScale, { stiffness: 400, damping: 40 });
 
   return (
     <div ref={ref} data-hero>
       {/* ─── IMAGE SECTION ─── */}
       <section data-dark-section className="relative h-hero-image overflow-hidden bg-[#0a0a0f]">
-        <motion.div className="absolute inset-0" style={{ y: imgY }}>
+        <motion.div
+          className="absolute inset-0 will-change-transform"
+          style={{
+            y: smoothY,
+            scale: smoothScale,
+            backfaceVisibility: "hidden",
+          }}
+        >
           <Image
             src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=1920&q=80"
             alt="GAISS Summit — conference attendees at a tech summit on generative AI for secure systems"
             fill
-            className="object-cover scale-110 grayscale brightness-[0.45] contrast-110"
+            className="object-cover scale-[1.1] grayscale brightness-[0.45] contrast-110"
             priority
             sizes="100vw"
           />
